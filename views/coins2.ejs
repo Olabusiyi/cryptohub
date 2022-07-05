@@ -1,0 +1,157 @@
+<%- include("partials/header"); -%>
+
+
+
+<section class="data-page">
+  <div class="coins2-heading">
+    <div class="coins2-name">
+      <h2> <%= coinData.name %> </h2>
+      <img src="<%= coinData.image.small %>" alt="">
+    </div>
+    <div class="coins2-price">
+      <h2> <%= coinData.market_data.current_price.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD',});%> </h2>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="coins2-container">
+    <div class="coins2-box1">
+
+<p class="sub-heading">Market Data</p>
+
+
+      <table class="table">
+        <tbody>
+
+          <tr>
+            <th scope="row">Rank: #<%= coinData.market_cap_rank%></th>
+          </tr>
+          <tr>
+            <th scope="row">Market Cap: <%= coinData.market_data.market_cap.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD',});%></th>
+          </tr>
+          <tr>
+            <th scope="row">24H Low: <%= coinData.market_data.low_24h.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD',}); %></th>
+          </tr>
+          <tr>
+            <th scope="row">24H High: <%= coinData.market_data.high_24h.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD',}); %></th>
+          </tr>
+          <tr>
+            <th scope="row">Circulating supply: <%= coinData.market_data.circulating_supply.toLocaleString('en-US', { style: 'currency', currency: 'USD',});%></th>
+          </tr>
+          <tr>
+            <th scope="row">All Time High % Change: <%= coinData.market_data.ath_change_percentage.usd.toFixed(2)%>%</th>
+          </tr>
+          <tr>
+            <th scope="row">Total Volume: <%= coinData.market_data.total_volume.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD',});%></th>
+          </tr>
+          <tr>
+            <th scope="row">Price Change(7d): <%= coinData.market_data.price_change_percentage_7d.toFixed(2)%> %</th>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+    </div>
+
+    <div class="coins2-box2">
+      <p class="sub-heading">Relevant Links</p>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row"><a href="<%= coinData.links.homepage[0] %> ">Official Site</a></th>
+          </tr>
+          <tr>
+            <th scope="row"><a href="<%= coinData.links.announcement_url[0]%> ">Announcements</a></th>
+          </tr>
+          <tr>
+            <th scope="row"><a href="<%= coinData.links.blockchain_site[0] %> ">Blockchain Explorer</a></th>
+          </tr>
+          <tr>
+            <th scope="row"><a href="<%= coinData.links.repos_url.github[0] %> ">GitHub</a></th>
+          </tr>
+          <tr>
+            <th scope="row"><a href="<%= coinData.links.subreddit_url %> ">Reddit</a></th>
+          </tr>
+          <tr>
+            <th scope="row"><a href="https://twitter.com/<%= coinData.links.twitter_screen_name %> ">Twitter</a></th>
+          </tr>
+          <tr>
+            <th scope="row"><a href="<%= coinData.links.official_forum_url[0]%> ">Open Source Form</a></th>
+          </tr>
+          <tr>
+            <th scope="row"><a href="<%= coinData.links.chat_url[0]%> ">Public Chat</a></th>
+          </tr>
+
+
+
+        </tbody>
+      </table>
+
+
+
+    </div>
+  </div>
+
+  <div class="coins2-box3">
+      <p class="sub-heading">What is <%= coinData.name %>?</p>
+
+    <p><%- coinData.description.en%> </p>
+  </div>
+
+
+  <div class="coins2-box4">
+    <p class="sub-heading">Day vs. <%= coinData.name %>(USD)</p>
+
+    <div>
+      <canvas id="myChart"></canvas>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+        const labels = <%- JSON.stringify(datesOfPrices); %>
+
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: '30 Day Interval',
+            backgroundColor: 'rgba(0,0,255,1.0)',
+            borderColor: 'rgba(0,0,255,1.0)',
+            data: <%- JSON.stringify(pricesOfCoin); %>,
+          }]
+        };
+
+        const config = {
+          type: 'line',
+          data: data,
+          options: {}
+        };
+      </script>
+      <script>
+        const myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+        );
+      </script>
+
+
+    </div>
+  </div>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<%- include("partials/footer"); -%>

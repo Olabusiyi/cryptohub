@@ -1,0 +1,199 @@
+* {
+font-family: "Montserrat";
+}
+
+h2 a, h1{
+  text-decoration: none;
+  color: white;
+}
+
+.nav .nav-item .nav-link{
+  color: white;
+}
+
+.title-section{
+  padding: 2% 2% 6% 6%;
+  background-color: #7EC8E3;
+}
+
+.title{
+  padding-bottom: 2%;
+}
+
+.sub-heading{
+  font-size: 1.5rem;
+}
+
+.quick-facts{
+  padding: 3%;
+}
+
+.each-card:hover{
+box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.last-card{
+  padding-top: 2%;
+}
+
+.top-crypto {
+  padding: 3%;
+}
+
+.top-crypto a{
+  text-decoration: none;
+}
+
+.subscribe-text{
+  width: 50%;
+}
+
+.footer{
+  text-align: center;
+  background-color: #D3D3D3;
+  padding: 3%;
+}
+
+.img-homepage{
+  width: 100%;
+  height: 100%;
+}
+
+.img-table{
+  width: 50px;
+  height: 50px;
+}
+
+.table-row{
+  padding: 3%;
+}
+
+.trending-coin-card{
+  background-color: #D3D3D3;
+  display: inline-block;
+  width: 50%;
+  border-radius: 15px;
+}
+
+.trending-img{
+ float:right;
+}
+
+#trending-coins{
+  padding: 3%;
+}
+
+#news{
+ padding: 3%;
+}
+
+.news-img-container{
+  position: relative;
+}
+
+.news-img{
+  max-width: 250px;
+  max-height: 250px;
+  position: relative;
+  padding: 2%;
+  bottom: 0;
+  left: 0;
+}
+
+.exchange-heading{
+  padding: 5%;
+  line-height: 2;
+}
+
+.exchanges{
+  padding: 1% 5%;
+  line-height: 2;
+}
+
+.exchange-list{
+  padding: 1% 5%;
+}
+
+.exchange-card{
+  position: relative;
+}
+
+.exchange-img{
+  width: 60px;
+  height: auto;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+
+.exchange-url{
+  position: absolute;
+  right: 25px;
+  bottom: 10px;
+}
+
+.data-page{
+  padding: 5%;
+}
+
+
+.coins2-container{
+display: flex;
+justify-content: space-between;
+}
+
+.slider{
+  width: 350px;
+  height: 7px;
+  background-image: linear-gradient(to right, #dedf1c, #85df1c);
+  border-radius: 5px;
+}
+
+.high-24h{
+  padding-left: 225px;
+}
+
+.coins2-name{
+  padding-bottom: 2%;
+  display: flex;
+
+}
+
+.coins2-name img{
+  padding-left: 1%;
+
+}
+
+.coins2-price{
+  padding-bottom: 2%;
+}
+
+.data-facts{
+  width: 500px;
+  background-color: red;
+}
+.coins2-box1{
+ flex: 1;
+}
+
+.coins2-box2{
+ flex: 1;
+ text-align: right;
+}
+
+.coins2-heading{
+  padding-bottom: 2%;
+}
+
+.coins2-box2 a{
+  text-decoration: none;
+}
+
+.coins2-box3{
+  padding: 4% 0% 4%;
+  line-height: 2;
+}
+
+.coins2-box4{
+  text-align: center;
+}

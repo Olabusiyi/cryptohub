@@ -1,0 +1,41 @@
+<%- include("partials/header"); -%>
+
+<section class="top-crypto">
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"></th>
+        <th scope="col">Coin</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">Current Price</th>
+        <th scope="col">24h</th>
+        <th scope="col">Total Volume</th>
+        <th scope="col">Market Cap</th>
+
+      </tr>
+
+    </thead>
+    <tbody>
+      <p class="sub-heading">Top 100 Cryptocurrencies by Market Cap</p>
+      <%  coinList.forEach(function(coin){ %>
+      <tr class = table-row>
+        <td><%= coin.market_cap_rank %></td>
+        <td class="img-table" valign="middle" align="center"><img class="img-homepage" src="<%= coin.image %>" alt="coin-logo"></td>
+        <td><a href="/<%= coin.id %>"><%= coin.name %></a></td></td>
+        <td><%= coin.symbol %></td>
+        <td>$<%= coin.current_price %></td>
+        <td><%= coin.price_change_percentage_24h %>%</td>
+        <td>$<%= coin.total_volume %></td>
+        <td>$<%= coin.market_cap %></td>
+
+      </tr>
+      <%  }) %>
+
+    </tbody>
+  </table>
+</section>
+
+
+<%- include("partials/footer"); -%>

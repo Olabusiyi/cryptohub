@@ -1,0 +1,153 @@
+<%- include("partials/header"); -%>
+
+
+
+<!--Quick Facts Section--->
+
+<section class="quick-facts">
+
+  <p class="sub-heading">Quick Cryptocurrency Facts</p>
+  <div class="row">
+    <div class="col-lg-4 col-sm-4">
+      <div class="card">
+        <div class="card-body each-card">
+          <h5 class="card-title">Total Active Cryptocurrencies </h5>
+          <p class="card-text"> <%= totalCryptocurrencies %> </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-4">
+      <div class="card">
+        <div class="card-body each-card">
+          <h5 class="card-title">Total Market Cap</h5>
+          <p class="card-text"> <%= totalMarketCap %> </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-4">
+      <div class="card">
+        <div class="card-body each-card">
+          <h5 class="card-title">Total 24h Volume</h5>
+          <p class="card-text"> <%= total24hVolume %> </p>
+        </div>
+      </div>
+    </div>
+    <div class="last-card col-lg4 col-sm-4">
+      <div class=" card">
+        <div class="card-body each-card">
+          <h5 class="card-title">Markets</h5>
+          <p class="card-text"><%= markets %></p>
+        </div>
+      </div>
+    </div>
+    <div class="last-card col-lg4 col-sm-4">
+      <div class=" card">
+        <div class="card-body each-card">
+          <h5 class="card-title">Bitcoin Market share</h5>
+          <p class="card-text"><%= bitcoinMarketShare %> %</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--Top Crpto Section-->
+<section class="top-crypto">
+
+
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"></th>
+        <th scope="col">Coin</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">Current Price</th>
+        <th scope="col">24h</th>
+        <th scope="col">Total Volume</th>
+        <th scope="col">Market Cap</th>
+
+
+      </tr>
+
+    </thead>
+    <tbody>
+      <p class="sub-heading">Top Cryptocurrencies by Market Cap</p>
+      <%  coinArray.forEach(function(coin){ %>
+      <tr>
+        <td><%= coin.market_cap_rank %></td>
+        <td class="img-table" valign="middle" align="center"><img class="img-homepage" src="<%= coin.image %>" alt="coin-logo"></td>
+        <td><a href="/<%= coin.id %>"><%= coin.name %></a></td>
+        <td>$<%= coin.symbol %></td>
+        <td><%= (coin.current_price).toLocaleString('en-US', { style: 'currency', currency: 'USD',});%> </td>
+
+        <td><%=  (coin.price_change_percentage_24h).toFixed(2) %>%</td>
+        <td><%= coin.total_volume.toLocaleString('en-US', { style: 'currency', currency: 'USD',}); %></td>
+        <td><%= coin.market_cap.toLocaleString('en-US', { style: 'currency', currency: 'USD',}); %></td>
+
+      </tr>
+      <%  }) %>
+
+    </tbody>
+  </table>
+  <a class="navlink-buttons nav-link" href="/Coins">View More</a>
+</section>
+
+
+
+<!--Trending Coins-->
+<section id=trending-coins>
+  <p class="sub-heading">Top Trending Coins</p>
+  <div class="row">
+    <%  trendingCoins.forEach(function(coin){ %>
+
+    <div class="last-card col-lg-4 col-sm-4">
+      <div class=" card">
+        <div class="card-body each-card">
+          <h5 class="card-title"><%= coin.item.name %></h5>
+          <p class="card-text">#<%= coin.item.score + 1 %> on Trending</p>
+          <img src="<%= coin.item.small %>" alt="">
+          <img class="trending-img" src="https://www.coingecko.com/coins/<%= coin.item.coin_id %> /sparkline" alt="">
+        </div>
+      </div>
+    </div>
+
+    <% }) %>
+  </div>
+</section>
+
+
+<!--News-->
+<section id="news">
+
+
+  <p class="sub-heading">Crypto News</p>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <%  newsData.forEach(function(news){ %>
+    <div class="col">
+      <div class="each-card card h-100 news-img-container">
+        <img src="<%= news.image_url %>" class="card-img-top news-img" alt="">
+        <div class="card-body">
+          <h5 class="card-title"><%= news.title %></h5>
+
+
+          <a href="<%= news.link %>">Read more</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Published: <%= news.pubDate %></small>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+
+  </div>
+
+</section>
+
+
+
+
+<%- include("partials/footer"); -%>

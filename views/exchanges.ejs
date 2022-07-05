@@ -1,0 +1,35 @@
+<%- include("partials/header"); -%>
+
+
+<section class="exchange-heading">
+  <h3>What is an Exchange?</h3>
+
+  <p>A crypto exchange is a platform on which you can buy and sell cryptocurrency. You can use exchanges to trade one crypto for another — converting Bitcoin to Litecoin, for example — or to buy crypto using regular currency, like the U.S. Dollar.
+    Exchanges reflect current market prices of the cryptocurrencies they offer. You can also convert cryptocurrencies back into the U.S. Dollar or another currency on an exchange, to leave as cash within your account (if you want to trade back into
+    crypto later) or withdraw to your regular bank account.</p>
+  <!---https://time.com/nextadvisor/investing/cryptocurrency/what-are-cryptocurrency-exchanges/-->
+
+</section>
+
+<section class='exchanges'>
+  <h4> What are the most common exchanges?</h4>
+</section>
+
+
+<% exchanges.forEach(function(exchange){ %>
+<section class='exchange-list'>
+
+  <div class="card w-100 ">
+    <div class="each-card exchange-card card-body">
+      <h4 class="card-title"><%= exchange.name %> </h4>
+      <p class="card-text">Trust score Rank: <%= exchange.trust_score_rank %> </p>
+      <p>24 Volume in Bitcoin: $ <%= exchange.trade_volume_24h_btc %></p>
+      <a  href="<%= exchange.url %>" class="exchange-url btn btn-primary">Visit Site</a>
+      <img class='exchange-img' src="<%= exchange.image %>" alt="">
+    </div>
+  </div>
+
+</section>
+<% }) %>
+
+<%- include("partials/footer"); -%>
